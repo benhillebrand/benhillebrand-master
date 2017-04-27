@@ -1,12 +1,18 @@
 //set the colors and the id field
 var initialColors = [
-  "#D4B9DA",
-  "#C994C7",
-  "#DF65B0",
-  "#DD1C77",
-  "#980043"
+  "#ff0000",
+  "#FFA500",
+  "#ffff00",
+  "#3A5F0B",
+  "#87ceeb",
+  "#0000ff",
+  "#E6E6FA",
+  "#EE82EE",
+  "#FF69B4",
+  "#000000",
+  "#C0C0C0"
 ];
-var key = "FIPS";
+var key = "YR";
 
 
 var attNames = [];
@@ -25,15 +31,14 @@ function initialize(){
 
 function setMap(){
 
-  var map = new L.map('map').setView([42, -93], 7)
+  var map = new L.map('map').setView([35, -97], 7)
   .addLayer(new L.TileLayer("http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png"));
 
   var svg = d3.select(map.getPanes().overlayPane).append("svg"),
   g = svg.append("g").attr("class", "leaflet-zoom-hide");
 
-  d3.json("data/iowa_counties.json", function(error, jsonData) {
+  d3.json("data/Ok0313Clip.json", function(error, jsonData) {
     if (error) throw error;
-
 
     var cnt = 0;
     //create an attribute array (pcpdata) an populate the array using the attributes in json
